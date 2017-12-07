@@ -143,29 +143,29 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         return array
     }
     
+   
     
-    override func viewDidAppear(_ animated: Bool) {
-        
-        
-        ScrollView.removeFromSuperview()
-        ScrollView2.removeFromSuperview()
-        ViewWidth = self.view.frame.width
-        ViewHeight = self.view.frame.height
-        
-        ScrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: ViewWidth, height: ViewHeight))
-        ScrollView.contentSize.width = 4200
-        self.view.addSubview(ScrollView)
-        ScrollView.delegate = self
-        
-        ScrollView2 = UIScrollView(frame: CGRect(x: 0, y: 0, width: 100, height: ViewHeight))
-        ScrollView2.contentSize.width = 100
-        self.view.addSubview(ScrollView2)
-        
-        if ChannelArray.count > 0{
-            ScrollView.contentSize.height = CGFloat(ChannelArray.count*70)
-            CreatUseInterface(number:ChannelArray.count)
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        DispatchQueue.main.async() {
+            self.ScrollView.removeFromSuperview()
+            self.ScrollView2.removeFromSuperview()
+            self.ViewWidth = self.view.frame.width
+            self.ViewHeight = self.view.frame.height
+            
+            self.ScrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: self.ViewWidth, height: self.ViewHeight))
+            self.ScrollView.contentSize.width = 4200
+            self.view.addSubview(self.ScrollView)
+            self.ScrollView.delegate = self
+            
+            self.ScrollView2 = UIScrollView(frame: CGRect(x: 0, y: 0, width: 100, height: self.ViewHeight))
+            self.ScrollView2.contentSize.width = 100
+            self.view.addSubview(self.ScrollView2)
+            
+            if self.ChannelArray.count > 0{
+                self.ScrollView.contentSize.height = CGFloat(self.ChannelArray.count*70)
+                self.CreatUseInterface(number:self.ChannelArray.count)
+            }
         }
-       
     }
     
     
