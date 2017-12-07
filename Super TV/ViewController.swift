@@ -112,7 +112,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                 let time4 = String(start[index4])
                 let Time = "\(time1)\(time2):\(time3)\(time4) "
                 
-                let TextBoxTime = UILabel(frame: CGRect(x: 0, y: 0, width: 30, height: TVChannelHeigth - 50))
+                let TextBoxTime = UILabel(frame: CGRect(x: 2, y: 0, width: 30, height: TVChannelHeigth - 50))
                 TextBoxTime.backgroundColor = .black
                 TextBoxTime.textColor = UIColor.white
                 TextBoxTime.font = TextBox.font.withSize(10)
