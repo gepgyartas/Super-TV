@@ -13,6 +13,8 @@
 		0799BCFF1FD97402006CB2A0 /* Super_TV.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0799BCFD1FD97402006CB2A0 /* Super_TV.xcdatamodeld */; };
 		0799BD011FD97402006CB2A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0799BD001FD97402006CB2A0 /* Assets.xcassets */; };
 		0799BD041FD97402006CB2A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0799BD021FD97402006CB2A0 /* LaunchScreen.storyboard */; };
+		0799BD0C1FD97793006CB2A0 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0799BD0B1FD97793006CB2A0 /* Parser.swift */; };
+		0799BD0E1FD97940006CB2A0 /* Channels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0799BD0D1FD97940006CB2A0 /* Channels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		0799BD001FD97402006CB2A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0799BD031FD97402006CB2A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0799BD051FD97402006CB2A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0799BD0B1FD97793006CB2A0 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		0799BD0D1FD97940006CB2A0 /* Channels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 			children = (
 				0799BCF61FD97402006CB2A0 /* AppDelegate.swift */,
 				0799BCF81FD97402006CB2A0 /* ViewController.swift */,
+				0799BD0D1FD97940006CB2A0 /* Channels.swift */,
+				0799BD0B1FD97793006CB2A0 /* Parser.swift */,
 				0799BCFA1FD97402006CB2A0 /* Main.storyboard */,
 				0799BD001FD97402006CB2A0 /* Assets.xcassets */,
 				0799BD021FD97402006CB2A0 /* LaunchScreen.storyboard */,
@@ -139,9 +145,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0799BD0C1FD97793006CB2A0 /* Parser.swift in Sources */,
 				0799BCF91FD97402006CB2A0 /* ViewController.swift in Sources */,
 				0799BCF71FD97402006CB2A0 /* AppDelegate.swift in Sources */,
 				0799BCFF1FD97402006CB2A0 /* Super_TV.xcdatamodeld in Sources */,
+				0799BD0E1FD97940006CB2A0 /* Channels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
