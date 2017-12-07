@@ -28,7 +28,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         ViewHeight = self.view.frame.height
         
         ScrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: ViewWidth, height: ViewHeight + 20))
-        ScrollView.contentSize.width = 4200
+        ScrollView.contentSize.width = 8640
         self.view.addSubview(ScrollView)
         ScrollView.delegate = self
         
@@ -61,7 +61,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         
         for i in stride(from: 0, to: 24, by: 1){
             
-            let TextBox = UILabel(frame: CGRect(x: 180*i, y: 0, width: 180, height: 20))
+            let TextBox = UILabel(frame: CGRect(x: 360*i, y: 0, width: 360, height: 20))
             TextBox.backgroundColor = UIColor.gray
             TextBox.textColor = UIColor.yellow
             TextBox.font = TextBox.font.withSize(16)
@@ -93,6 +93,25 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                 let end = ChannelArray[index].TVProgram.episods[index2].EndDate
                 let xPoz:[Double] = getTime(a: start, b: end)
                 
+                
+                let BackGroundColor = UILabel(frame: CGRect(x: xPoz[0] - 2, y: ypos - 2, width: 30, height: TVChannelHeigth - 10))
+                let number = arc4random()%5
+                if number == 0 {
+                    BackGroundColor.backgroundColor = .black
+                }
+                if number == 1 {
+                    BackGroundColor.backgroundColor = .yellow
+                }
+                if number == 2 {
+                    BackGroundColor.backgroundColor = .red
+                }
+                if number == 3 {
+                    BackGroundColor.backgroundColor = .orange
+                }
+                if number == 4 {
+                    BackGroundColor.backgroundColor = .blue
+                }
+                ScrollView.addSubview(BackGroundColor)
                 
                 let TextBox = UILabel(frame: CGRect(x: xPoz[0], y: ypos, width: xPoz[1], height: TVChannelHeigth - 10))
                 TextBox.backgroundColor = .black
@@ -146,8 +165,8 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         let start = Int(dateStart!.timeIntervalSince1970)
         let end = Int(dateEnd!.timeIntervalSince1970)
         
-        let result = (Double(start - xPozTime)/20)
-        let width = (Double(end - start)/20) - 5.0
+        let result = (Double(start - xPozTime)/10)
+        let width = (Double(end - start)/10) - 5.0
         array.append(result)
         array.append(width)
         
