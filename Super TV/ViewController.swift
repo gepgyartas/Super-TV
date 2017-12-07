@@ -27,17 +27,15 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         ViewWidth = self.view.frame.width
         ViewHeight = self.view.frame.height
         
-        ScrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: ViewWidth, height: ViewHeight))
+        ScrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: ViewWidth, height: ViewHeight + 20))
         ScrollView.contentSize.width = 4200
         self.view.addSubview(ScrollView)
         ScrollView.delegate = self
         
-        ScrollView2 = UIScrollView(frame: CGRect(x: 0, y: 0, width: 100, height: ViewHeight))
+        ScrollView2 = UIScrollView(frame: CGRect(x: 0, y: 0, width: 100, height: ViewHeight + 20))
         ScrollView2.contentSize.width = 100
         self.view.addSubview(ScrollView2)
         
-        
-
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
@@ -50,7 +48,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         
       
         if ChannelArray.count > 0{
-            ScrollView.contentSize.height = CGFloat(ChannelArray.count*70)
+            ScrollView.contentSize.height = CGFloat(ChannelArray.count*70) + 20
             CreatUseInterface(number:ChannelArray.count)
         }
         
@@ -61,14 +59,27 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     public func CreatUseInterface(number:Int){
         
         
+        for i in stride(from: 0, to: 24, by: 1){
+            
+            let TextBox = UILabel(frame: CGRect(x: 180*i, y: 0, width: 180, height: 20))
+            TextBox.backgroundColor = UIColor.gray
+            TextBox.textColor = UIColor.yellow
+            TextBox.font = TextBox.font.withSize(16)
+            TextBox.text = i < 10 ? "0\(i):00" :  "\(i):00"
+            ScrollView.addSubview(TextBox)
+        }
+        
+        
         for index in stride(from: 0, to: number, by: 1){
             
-            let ypos = Double(index)*TVChannelHeigth
+            let ypos = Double(index)*TVChannelHeigth + 20
             
             let TextBox = UILabel(frame: CGRect(x: 0, y: ypos, width: 100, height: TVChannelHeigth))
             TextBox.backgroundColor = .black
             let a = ChannelArray[index].Title
             TextBox.textColor = UIColor.white
+            TextBox.layer.borderColor =  UIColor.lightGray.cgColor
+            TextBox.layer.borderWidth = 3
             TextBox.font = TextBox.font.withSize(16)
             TextBox.text = "\(a)"
             ScrollView2.addSubview(TextBox)
@@ -152,22 +163,27 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             self.ViewWidth = self.view.frame.width
             self.ViewHeight = self.view.frame.height
             
-            self.ScrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: self.ViewWidth, height: self.ViewHeight))
+            self.ScrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: self.ViewWidth, height: self.ViewHeight + 20))
             self.ScrollView.contentSize.width = 4200
             self.view.addSubview(self.ScrollView)
             self.ScrollView.delegate = self
             
-            self.ScrollView2 = UIScrollView(frame: CGRect(x: 0, y: 0, width: 100, height: self.ViewHeight))
+            self.ScrollView2 = UIScrollView(frame: CGRect(x: 0, y: 0, width: 100, height: self.ViewHeight + 20))
             self.ScrollView2.contentSize.width = 100
             self.view.addSubview(self.ScrollView2)
             
             if self.ChannelArray.count > 0{
-                self.ScrollView.contentSize.height = CGFloat(self.ChannelArray.count*70)
+                self.ScrollView.contentSize.height = CGFloat(self.ChannelArray.count*70) + 20
                 self.CreatUseInterface(number:self.ChannelArray.count)
             }
         }
     }
     
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+
     
     /*
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
